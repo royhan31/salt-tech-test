@@ -24,7 +24,7 @@ class OrderRepository implements OrderInterface
   }
 
   public function all(){
-    return $this->order->orderBy('created_at','DESC')->paginate(20);
+    return $this->order->where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->paginate(20);
   }
 
   public function storeBalance(array $data){
