@@ -57,7 +57,9 @@ class OrderRepository implements OrderInterface
       $like = 'ilike';
     }
 
-    return $this->order->where('order_number', $like,'%'.$val.'%')->orderBy('created_at','DESC')->paginate(20);
+    return $this->order->where('order_number', $like,'%'.$val.'%')
+                       ->where('user_id', Auth::user()->id)
+                       ->orderBy('created_at','DESC')->paginate(20);
   }
 
 }
