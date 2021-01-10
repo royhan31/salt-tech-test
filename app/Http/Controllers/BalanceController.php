@@ -8,8 +8,6 @@ use App\Models\Order;
 use App\Http\Repositories\BalanceRepository;
 use App\Http\Repositories\OrderRepository;
 use App\Http\Requests\BalanceRequest;
-use App\Jobs\CancelOrderJob;
-use Carbon\Carbon;
 use DB;
 
 class BalanceController extends Controller
@@ -37,8 +35,7 @@ class BalanceController extends Controller
           DB::rollback();
           return back()->with('errors', 'Please try again');
       }
-      $delay = Carbon::now()->addMinutes(5);
-      dispatch(new CancelOrderJob($order))->delay($delay);
+      $order->jobCancelOrder();
       return redirect()->route('order.show', $order);
     }
 }

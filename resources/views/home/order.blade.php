@@ -4,11 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+          @if(Session::has('errors'))
+          <div class="alert alert-danger" role="alert">
+            {{ Session::get('errors') }}
+          </div>
+          @endif
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">
-                      <h4>Success!</h4>
-                    </div>
+                    <div class="card-title"><h4>Success!</h4></div>
+                    <form action="{{route('order.update', $order)}}" method="post">
+                      @csrf
+                      @method('PUT')
                     <div class="row mb-4">
                       <div class="col-4">
                         Order no.
@@ -30,6 +36,7 @@
                         <button type="submit" class="btn btn-primary btn-block" name="button">Pay Now</button>
                       </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

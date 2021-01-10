@@ -19,4 +19,6 @@ class Balance extends Model
     public function valueIdr(){
       return 'Rp. '.number_format($this->value, 0,',','.');
     }
+
+
 }

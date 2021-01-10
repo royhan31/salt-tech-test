@@ -36,6 +36,7 @@ class ProductController extends Controller
         return back()->with('errors', 'Please try again');
     }
 
+    $order->jobCancelOrder();
     return redirect()->route('order.show', $order);
   }
 }

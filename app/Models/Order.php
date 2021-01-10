@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Jobs\CancelOrderJob;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -31,5 +33,10 @@ class Order extends Model
 
     public function productTotal(){
       return 'Rp. '.number_format($this->product->price + 10000, 0,',','.');
+    }
+
+    public function jobCancelOrder(){
+      $delay = Carbon::now()->addMinutes(5);
+      return dispatch(new CancelOrderJob($this))->delay($delay);
     }
 }
