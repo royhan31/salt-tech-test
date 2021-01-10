@@ -61,21 +61,6 @@ or
 
 You can now access live test at https://salt-tech-test.herokuapp.com/
 
-**TL;DR command list**
-
-    git clone git@github.com:gothinkster/laravel-realworld-example-app.git
-    cd laravel-realworld-example-app
-    composer install
-    cp .env.example .env
-    php artisan key:generate
-    php artisan jwt:generate
-
-**Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
-
-    php artisan migrate
-    php artisan serve
-
-
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
