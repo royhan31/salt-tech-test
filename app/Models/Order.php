@@ -37,6 +37,7 @@ class Order extends Model
 
     public function jobCancelOrder(){
       $delay = Carbon::now()->addMinutes(5);
-      return dispatch(new CancelOrderJob($this))->delay($delay);
+      $job = (new CancelOrderJob($this))->delay($delay);
+      return dispatch($job);
     }
 }

@@ -51,9 +51,19 @@ Run the database migrations (**Set the database connection in .env before migrat
 
     php artisan migrate
 
+Install your project's frontend dependencies :
+    npm install
+
+Compile your SASS files to plain CSS using Laravel Mix:
+    npm run dev
+
 Start the local development server
 
     php artisan serve
+
+Start the queue
+
+    php artisan queue:work
 
 You can now access the server at http://localhost:8000
 

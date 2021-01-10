@@ -48,7 +48,7 @@
                               @elseif($order->status && $order->balance)
                                 <span class="text-success">Success</span>
                               @elseif(!$order->status && $order->product)
-                                <span class="text-danger">Cancaled</span>
+                                <span class="text-danger">Canceled</span>
                               @elseif($order->status && $order->product)
                                 <span class="text-center">
                                   <b>Shipping Code </b>
