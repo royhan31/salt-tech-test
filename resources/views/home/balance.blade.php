@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          @if($errors->all() || Session::has('errors'))
+          @if($errors->all() || Session::has('failed'))
           <div class="alert alert-danger" role="alert">
-            {{ Session::get('errors') ?? 'Failed order prepaid balance'}}
+            {{ Session::get('failed') ?? 'Failed order prepaid balance'}}
           </div>
           @endif
             <div class="card">

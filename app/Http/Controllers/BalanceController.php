@@ -33,7 +33,7 @@ class BalanceController extends Controller
         DB::commit();
       } catch (\Exception $e) {
           DB::rollback();
-          return back()->with('errors', 'Please try again');
+          return back()->with('failed', 'Please try again');
       }
       $order->jobCancelOrder();
       return redirect()->route('order.show', $order);

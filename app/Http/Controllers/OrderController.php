@@ -38,7 +38,7 @@ class OrderController extends Controller
       return redirect()->route('order')->with('success', $order->balance ? 'Balance is successfully paid' : ' Product is successfully paid');
     }
 
-    return back()->with('errors', 'Please pay with time 09:00 AM to 05:00 PM');
+    return back()->with('failed', 'Please pay with time 09:00 AM to 05:00 PM');
   }
 
   public function search(Request $request){

@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          @if(Session::has('errors'))
+          @if(Session::has('failed'))
           <div class="alert alert-danger" role="alert">
-            {{ Session::get('errors') }}
+            {{ Session::get('failed') }}
           </div>
           @endif
             <div class="card">
